@@ -1,13 +1,20 @@
 import React from "react"
+import { Link } from "gatsby"
+
+import Layout from "../components/layout"
+import indexStyle from "./index.module.scss"
 
 const IndexPage = () => {
   return (
-    <div>
-      <h1>Helo</h1>
-      <h2>
+    <Layout>
+      <h1>Hello</h1>
+      <h2 className={indexStyle.subtitle}>
         I'm Adel, a fullstack developer living in beautiful Saint-Petersburg
       </h2>
-    </div>
+      <p>
+        Need a developer? <Link to="/contact">Contact me</Link>
+      </p>
+    </Layout>
   )
 }
 

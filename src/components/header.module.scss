@@ -1,0 +1,28 @@
+.header {
+  padding: 1rem 0 3rem;
+}
+.title {
+  text-decoration: none;
+  font-size: 2rem;
+  color: #000;
+}
+.link {
+  color: #999;
+  text-decoration: none;
+  &:hover {
+    color: #333;
+  }
+}
+
+.ul {
+  display: flex;
+}
+
+.li {
+  margin-right: 2rem;
+  list-style: none;
+}
+
+.active-nav-item {
+  color: #333;
+}
