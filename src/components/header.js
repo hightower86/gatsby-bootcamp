@@ -50,6 +50,15 @@ const Header = () => {
           </li>
           <li className={headerStyle.li}>
             <Link
+              to="/projects"
+              className={headerStyle.link}
+              activeClassName={headerStyle.activeNavItem}
+            >
+              Projects
+            </Link>
+          </li>
+          <li className={headerStyle.li}>
+            <Link
               to="/contact"
               className={headerStyle.link}
               activeClassName={headerStyle.activeNavItem}
