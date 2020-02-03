@@ -2,14 +2,24 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
+import projectsStyles from "./projects.module.scss"
 
 const projects = () => (
   <Layout>
-    <h1>Projects Page</h1>
-    <p>Here will be projects</p>
-    <p>
-      To home<Link to="/">Contact me</Link>
-    </p>
+    <div className={projectsStyles.projects}>
+      <div className={projectsStyles.card}>
+        <h3>Mini projects</h3>
+        <ul className="pList">
+          <li className="pItem">project1</li>
+          <li className="pItem">project2</li>
+          <li className="pItem">project3</li>
+        </ul>
+      </div>
+      <div className={projectsStyles.card}>
+        <h3>Large projects</h3>
+        <p>large projects</p>
+      </div>
+    </div>
   </Layout>
 )
 export default projects
