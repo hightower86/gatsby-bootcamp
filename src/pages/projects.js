@@ -10,7 +10,9 @@ const projects = () => (
       <div className={projectsStyles.card}>
         <h3>Mini projects</h3>
         <ul className="pList">
-          <li className="pItem">project1</li>
+          <li className="pItem">
+            <Link to="/project1">project1</Link>
+          </li>
           <li className="pItem">project2</li>
           <li className="pItem">project3</li>
         </ul>
