@@ -46,10 +46,18 @@
           border-radius: 4px;
           width: 100%;
           display: block;
+
           &:focus {
             outline: 0;
             border-color: rgb(131, 131, 131);
           }
+          //&.success {
+          //border: 1px solid rgb(1, 167, 76);
+          //@function: rgb(29, 121, 1);
+          //}
+        }
+        input.success {
+          border: 1px solid rgb(1, 167, 76);
         }
         small {
           position: absolute;

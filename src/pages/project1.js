@@ -4,6 +4,10 @@ import { Link } from "gatsby"
 import pStyle from "./project.module.scss"
 
 const Project1 = () => {
+  const onBtnClick = e => {
+    //e.preventDefault()
+    console.log(e)
+  }
   return (
     <div className={pStyle.wrap}>
       <h2>FORM VALIDATOR</h2>
@@ -11,10 +15,16 @@ const Project1 = () => {
         go back
       </Link>
       <div className={pStyle.container}>
-        <form id="form" className="form" autocomplete="off">
+        <form
+          id="form"
+          className="form"
+          autoComplete="off"
+          onSubmit={e => e.preventDefault()}
+        >
           <div className={pStyle.formgroup}>
             <label htmlFor="name">Name</label>
             <input
+              className={pStyle.success}
               type="text"
               name="name"
               id="name"
@@ -28,7 +38,7 @@ const Project1 = () => {
               type="text"
               name="email"
               id="email"
-              placeholder="Enter your name"
+              placeholder="Enter your email"
             />
             <small>Error message</small>
           </div>
@@ -53,7 +63,7 @@ const Project1 = () => {
             <small>Error message</small>
           </div>
 
-          <button>Submit</button>
+          <button onClick={onBtnClick}>Submit</button>
         </form>
       </div>
     </div>
