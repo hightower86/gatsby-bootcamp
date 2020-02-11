@@ -1,13 +1,27 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 
 import pStyle from "./project.module.scss"
 
 const Project1 = () => {
-  const onBtnClick = e => {
-    //e.preventDefault()
-    console.log(e)
+  const [formFields, setFormFields] = useState({
+    name: "",
+    email: "",
+    password: "",
+    password2: "",
+  })
+
+  const handleChange = e => {
+    const { name, value } = e.target
+    setFormFields({ ...formFields, [name]: value })
+    //console.log(formFields)
   }
+
+  const onBtnClick = e => {
+    const { name, email, password, password2 } = formFields
+    console.log(name)
+  }
+
   return (
     <div className={pStyle.wrap}>
       <h2>FORM VALIDATOR</h2>
@@ -24,10 +38,11 @@ const Project1 = () => {
           <div className={pStyle.formgroup}>
             <label htmlFor="name">Name</label>
             <input
-              className={pStyle.success}
+              //className={pStyle.success}
               type="text"
               name="name"
               id="name"
+              onChange={e => handleChange(e)}
               placeholder="Enter your name"
             />
             <small>Error message</small>
