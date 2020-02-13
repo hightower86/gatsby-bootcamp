@@ -54,6 +54,9 @@
           &.success {
             border-color: rgb(1, 167, 76);
           }
+          &.fail {
+            border-color: rgb(239, 16, 16);
+          }
         }
 
         small {

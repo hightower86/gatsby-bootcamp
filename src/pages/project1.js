@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import { Link } from "gatsby"
 
 import pStyle from "./project.module.scss"
@@ -11,6 +11,11 @@ const Project1 = () => {
     password2: "",
   })
 
+  const nameRef = useRef()
+  const emailRef = useRef()
+  const passRef = useRef()
+  const pass2Ref = useRef()
+
   const handleChange = e => {
     const { name, value } = e.target
     setFormFields({ ...formFields, [name]: value })
@@ -19,6 +24,17 @@ const Project1 = () => {
 
   const onBtnClick = e => {
     const { name, email, password, password2 } = formFields
+    const formGroupClassName = nameRef.current.offsetParent.className
+    if (!name) {
+      console.log("fill the name")
+      //console.log()
+      //nameRef.current.offsetParent.className = `${nameRef.current.offsetParent.className} fail`
+      nameRef.current.className = pStyle.fail
+    } else {
+      nameRef.current.className = pStyle.success
+      // nameRef.current.offsetParent.className = `${nameRef.current.offsetParent.className} success`
+    }
+
     console.log(name)
   }
 
@@ -39,6 +55,7 @@ const Project1 = () => {
             <label htmlFor="name">Name</label>
             <input
               //className={pStyle.success}
+              ref={nameRef}
               type="text"
               name="name"
               id="name"
