@@ -24,35 +24,39 @@ const Project1 = () => {
     const inputNameErrorMessage = nameRef.current.nextElementSibling
 
     if (!name) {
-      console.log("fill the name")
-      nameRef.current.className = pStyle.fail
-      inputNameErrorMessage.textContent = "Fill the name please"
-      inputNameErrorMessage.style.visibility = "visible"
+      showError(nameRef,"Fill the name please")
     } else {
-      nameRef.current.className = pStyle.success
-      inputNameErrorMessage.style.visibility = "hidden"
+      showSuccess(nameRef)
     }
   }
   const validateEmail = e => {
     const inputEmailErrorMessage = emailRef.current.nextElementSibling
 
     if (!e) {
-      console.log("elment", e)
-      emailRef.current.className = pStyle.fail
-      inputEmailErrorMessage.textContent = "Fill the email address please"
-      inputEmailErrorMessage.style.visibility = "visible"
+     showError(emailRef,"Fill the email address please")
     } else {
       const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       if (re.test(e.trim())) {
-        //showSuccess(input)
-        emailRef.current.className = pStyle.success
-        inputEmailErrorMessage.style.visibility = "hidden"
+        showSuccess(emailRef)
+        
       } else {
-        emailRef.current.className = pStyle.fail
-        inputEmailErrorMessage.textContent = "Email is not valid"
-        inputEmailErrorMessage.style.visibility = "visible"
+        showError(emailRef,'Email is not valid')
       }
     }
+  }
+
+  const showError = (inputRef,message) => {
+    inputRef.current.className = pStyle.fail
+    const inputErrorMessage = inputRef.current.nextElementSibling
+    inputErrorMessage.textContent = message
+    inputErrorMessage.style.visibility = "visible"
+  }
+
+  const showSuccess = (inputRef) => {
+    inputRef.current.className = pStyle.success
+    const inputErrorMessage = inputRef.current.nextElementSibling
+   // inputRef.textContent = message
+   inputErrorMessage.style.visibility = "hidden"
   }
 
   const onBtnClick = e => {
