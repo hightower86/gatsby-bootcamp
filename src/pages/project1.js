@@ -24,39 +24,51 @@ const Project1 = () => {
     //const inputNameErrorMessage = nameRef.current.nextElementSibling
 
     if (!name) {
-      showError(nameRef,"Fill the name please")
-    } 
-      checkLength(name,nameRef,4,15)
-      
+      showError(nameRef, "Fill the name please")
+    }
+    checkLength(name, nameRef, 4, 15)
   }
   const validateEmail = e => {
     //const inputEmailErrorMessage = emailRef.current.nextElementSibling
 
     if (!e) {
-     showError(emailRef,"Fill the email address please")
+      showError(emailRef, "Fill the email address please")
     } else {
       const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       if (re.test(e.trim())) {
         showSuccess(emailRef)
-        
       } else {
-        showError(emailRef,'Email is not valid')
+        showError(emailRef, "Email is not valid")
       }
     }
   }
+  const validatePassword = p => {
+    if (!p) {
+      showError(passRef, "Fill the password please")
+    } else {
+      checkLength(p, passRef, 6, 100)
+    }
+  }
+  const validatePassword2 = (p1, p2) => {
+    if (p1 !== p2) {
+      showError(pass2Ref, "Passwords do not match")
+    } else {
+      showSuccess(pass2Ref)
+    }
+  }
 
-  const showError = (inputRef,message) => {
+  const showError = (inputRef, message) => {
     inputRef.current.className = pStyle.fail
     const inputErrorMessage = inputRef.current.nextElementSibling
     inputErrorMessage.textContent = message
     inputErrorMessage.style.visibility = "visible"
   }
 
-  const showSuccess = (inputRef) => {
+  const showSuccess = inputRef => {
     inputRef.current.className = pStyle.success
     const inputErrorMessage = inputRef.current.nextElementSibling
-   // inputRef.textContent = message
-   inputErrorMessage.style.visibility = "hidden"
+    // inputRef.textContent = message
+    inputErrorMessage.style.visibility = "hidden"
   }
 
   const onBtnClick = e => {
@@ -64,13 +76,18 @@ const Project1 = () => {
     console.dir(nameRef.current.nextElementSibling)
     validateName(name)
     validateEmail(email)
+    validatePassword(password)
+    validatePassword2(password, password2)
 
     console.log(name)
   }
 
-  const checkLength = (input, inputRef, minLength,maxLength) => {
+  const checkLength = (input, inputRef, minLength, maxLength) => {
     if (input.length > maxLength || input.length < minLength) {
-      showError(inputRef, `Length of input must be less then ${maxLength} and more then ${minLength}`)
+      showError(
+        inputRef,
+        `Length of input must be less then ${maxLength} and more then ${minLength}`
+      )
     } else {
       showSuccess(inputRef)
     }
@@ -129,7 +146,7 @@ const Project1 = () => {
             <label htmlFor="password2">Name</label>
             <input
               ref={pass2Ref}
-              type="text"
+              type="password"
               name="password2"
               id="password2"
               placeholder="Confirm password"
@@ -138,7 +155,7 @@ const Project1 = () => {
             <small>Error message</small>
           </div>
 
-          <button onClick={onBtnClick}>Submit</button>
+          <button type='submit' onClick={onBtnClick}>Submit</button>
         </form>
       </div>
     </div>
