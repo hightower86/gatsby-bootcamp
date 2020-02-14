@@ -21,16 +21,16 @@ const Project1 = () => {
     setFormFields({ ...formFields, [name]: value })
   }
   const validateName = name => {
-    const inputNameErrorMessage = nameRef.current.nextElementSibling
+    //const inputNameErrorMessage = nameRef.current.nextElementSibling
 
     if (!name) {
       showError(nameRef,"Fill the name please")
-    } else {
-      showSuccess(nameRef)
-    }
+    } 
+      checkLength(name,nameRef,4,15)
+      
   }
   const validateEmail = e => {
-    const inputEmailErrorMessage = emailRef.current.nextElementSibling
+    //const inputEmailErrorMessage = emailRef.current.nextElementSibling
 
     if (!e) {
      showError(emailRef,"Fill the email address please")
@@ -66,6 +66,14 @@ const Project1 = () => {
     validateEmail(email)
 
     console.log(name)
+  }
+
+  const checkLength = (input, inputRef, minLength,maxLength) => {
+    if (input.length > maxLength || input.length < minLength) {
+      showError(inputRef, `Length of input must be less then ${maxLength} and more then ${minLength}`)
+    } else {
+      showSuccess(inputRef)
+    }
   }
 
   return (
