@@ -19,21 +19,47 @@ const Project1 = () => {
   const handleChange = e => {
     const { name, value } = e.target
     setFormFields({ ...formFields, [name]: value })
-    //console.log(formFields)
+  }
+  const validateName = name => {
+    const inputNameErrorMessage = nameRef.current.nextElementSibling
+
+    if (!name) {
+      console.log("fill the name")
+      nameRef.current.className = pStyle.fail
+      inputNameErrorMessage.textContent = "Fill the name please"
+      inputNameErrorMessage.style.visibility = "visible"
+    } else {
+      nameRef.current.className = pStyle.success
+      inputNameErrorMessage.style.visibility = "hidden"
+    }
+  }
+  const validateEmail = e => {
+    const inputEmailErrorMessage = emailRef.current.nextElementSibling
+
+    if (!e) {
+      console.log("elment", e)
+      emailRef.current.className = pStyle.fail
+      inputEmailErrorMessage.textContent = "Fill the email address please"
+      inputEmailErrorMessage.style.visibility = "visible"
+    } else {
+      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      if (re.test(e.trim())) {
+        //showSuccess(input)
+        emailRef.current.className = pStyle.success
+        inputEmailErrorMessage.style.visibility = "hidden"
+      } else {
+        emailRef.current.className = pStyle.fail
+        inputEmailErrorMessage.textContent = "Email is not valid"
+        inputEmailErrorMessage.style.visibility = "visible"
+      }
+    }
   }
 
   const onBtnClick = e => {
     const { name, email, password, password2 } = formFields
-    const formGroupClassName = nameRef.current.offsetParent.className
-    if (!name) {
-      console.log("fill the name")
-      //console.log()
-      //nameRef.current.offsetParent.className = `${nameRef.current.offsetParent.className} fail`
-      nameRef.current.className = pStyle.fail
-    } else {
-      nameRef.current.className = pStyle.success
-      // nameRef.current.offsetParent.className = `${nameRef.current.offsetParent.className} success`
-    }
+    console.dir(nameRef.current.nextElementSibling)
+    validateName(name)
+    validateEmail(email)
 
     console.log(name)
   }
@@ -54,7 +80,6 @@ const Project1 = () => {
           <div className={pStyle.formgroup}>
             <label htmlFor="name">Name</label>
             <input
-              //className={pStyle.success}
               ref={nameRef}
               type="text"
               name="name"
@@ -67,30 +92,36 @@ const Project1 = () => {
           <div className={pStyle.formgroup}>
             <label htmlFor="email">Email</label>
             <input
+              ref={emailRef}
               type="text"
               name="email"
               id="email"
               placeholder="Enter your email"
+              onChange={e => handleChange(e)}
             />
             <small>Error message</small>
           </div>
           <div className={pStyle.formgroup}>
             <label htmlFor="name">Password</label>
             <input
+              ref={passRef}
               type="password"
               name="password"
               id="password"
               placeholder="Enter password"
+              onChange={e => handleChange(e)}
             />
             <small>Error message</small>
           </div>
           <div className={pStyle.formgroup}>
             <label htmlFor="password2">Name</label>
             <input
+              ref={pass2Ref}
               type="text"
               name="password2"
               id="password2"
               placeholder="Confirm password"
+              onChange={e => handleChange(e)}
             />
             <small>Error message</small>
           </div>
