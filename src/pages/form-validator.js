@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react"
 import { Link } from "gatsby"
 
-import pStyle from "./project.module.scss"
+import pStyle from "./form-validator.module.scss"
 
-const Project1 = () => {
+const FormValidator = () => {
   const [formFields, setFormFields] = useState({
     name: "",
     email: "",
@@ -165,7 +165,7 @@ const Project1 = () => {
             <small>Error message</small>
           </div>
           <div className={pStyle.formgroup}>
-            <label htmlFor="password2">Name</label>
+            <label htmlFor="password2">Confirm password</label>
             <input
               ref={pass2Ref}
               type="password"
@@ -186,4 +186,4 @@ const Project1 = () => {
   )
 }
 
-export default Project1
+export default FormValidator

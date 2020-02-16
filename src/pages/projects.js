@@ -11,7 +11,7 @@ const projects = () => (
         <h3>Mini projects</h3>
         <ul className="pList">
           <li className="pItem">
-            <Link to="/project1">Form validator</Link>
+            <Link to="/form-validator">Form validator</Link>
           </li>
           <li className="pItem">project2</li>
           <li className="pItem">project3</li>
