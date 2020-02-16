@@ -75,13 +75,13 @@ const Project1 = () => {
 
   const onBtnClick = e => {
     const { name, email, password, password2 } = formFields
-    console.dir(nameRef.current.nextElementSibling)
+    //console.dir(nameRef.current.nextElementSibling)
     validateName(name)
     validateEmail(email)
     validatePassword(password)
     validatePassword2(password, password2)
 
-    console.log(name)
+    //console.log(name)
   }
 
   const checkLength = (input, inputRef, minLength, maxLength) => {
@@ -92,6 +92,23 @@ const Project1 = () => {
       )
     } else {
       showSuccess(inputRef)
+    }
+  }
+
+  const onNameInputKeyDown = e => {
+    if (e.key === "Enter") {
+      emailRef.current.focus()
+    }
+  }
+
+  const onEmailInputKeyDown = e => {
+    if (e.key === "Enter") {
+      passRef.current.focus()
+    }
+  }
+  const onPasswordInputKeyDown = e => {
+    if (e.key === "Enter") {
+      pass2Ref.current.focus()
     }
   }
 
@@ -116,6 +133,7 @@ const Project1 = () => {
               name="name"
               id="name"
               onChange={e => handleChange(e)}
+              onKeyDown={onNameInputKeyDown}
               placeholder="Enter your name"
             />
             <small>Error message</small>
@@ -128,7 +146,8 @@ const Project1 = () => {
               name="email"
               id="email"
               placeholder="Enter your email"
-              onChange={e => handleChange(e)}
+              onChange={handleChange}
+              onKeyDown={onEmailInputKeyDown}
             />
             <small>Error message</small>
           </div>
@@ -140,7 +159,8 @@ const Project1 = () => {
               name="password"
               id="password"
               placeholder="Enter password"
-              onChange={e => handleChange(e)}
+              onChange={handleChange}
+              onKeyDown={onPasswordInputKeyDown}
             />
             <small>Error message</small>
           </div>
@@ -152,7 +172,7 @@ const Project1 = () => {
               name="password2"
               id="password2"
               placeholder="Confirm password"
-              onChange={e => handleChange(e)}
+              onChange={handleChange}
             />
             <small>Error message</small>
           </div>
