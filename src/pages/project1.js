@@ -50,7 +50,9 @@ const Project1 = () => {
     }
   }
   const validatePassword2 = (p1, p2) => {
-    if (p1 !== p2) {
+    if (!p2) {
+      showError(pass2Ref, "Password can not be empty")
+    } else if (p1 !== p2) {
       showError(pass2Ref, "Passwords do not match")
     } else {
       showSuccess(pass2Ref)
@@ -155,7 +157,9 @@ const Project1 = () => {
             <small>Error message</small>
           </div>
 
-          <button type='submit' onClick={onBtnClick}>Submit</button>
+          <button type="submit" onClick={onBtnClick}>
+            Submit
+          </button>
         </form>
       </div>
     </div>
