@@ -13,7 +13,9 @@ const projects = () => (
           <li className="pItem">
             <Link to="/form-validator">Form validator</Link>
           </li>
-          <li className="pItem">project2</li>
+          <li className="pItem">
+            <Link to="/movie-tickets">Movie tickets</Link>
+          </li>
           <li className="pItem">project3</li>
         </ul>
       </div>
