@@ -11,6 +11,7 @@ const MovieTickets = () => {
         go back
       </Link>
       <h2>Movie Tickets</h2>
+      <div className={mStyle.container}>container</div>
     </div>
   )
 }
