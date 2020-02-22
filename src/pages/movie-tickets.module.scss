@@ -13,5 +13,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    .screen {
+      width: 300px;
+      height: 100px;
+      background-color: #fff;
+      margin: 10px 0;
+    }
   }
 }

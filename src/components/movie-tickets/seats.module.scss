@@ -1,0 +1,15 @@
+.seats {
+  display: flex;
+  width: 300px;
+  height: 200px;
+  background-color: rgb(181, 179, 179);
+}
+
+.seat {
+  flex-wrap: inherit;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  margin: 3px;
+  text-align: center;
+}
