@@ -1,23 +1,38 @@
 .row {
   display: flex;
+  justify-content: space-between;
 }
 
 .seats {
-  // display: grid;
-  // grid-template-columns: repeat(8, 1fr);
-  //flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   width: 300px;
   height: 200px;
   background-color: rgb(106, 106, 106);
-  padding: 10px;
+  padding: 5px;
 }
 
 .seat {
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 25px;
 
   background-color: white;
-  //margin: 1px;
   text-align: center;
+  // border-top-left-radius: 50%;
+  // border-top-right-radius: 50%;
+  border-radius: 20%;
+  cursor: pointer;
+
+  &:nth-of-type(2) {
+    margin-right: 10px;
+  }
+  &:nth-of-type(6) {
+    margin-right: 10px;
+  }
+  &:hover {
+    //background-color: #888;
+    border: 1px solid rgb(255, 254, 254);
+  }
 }
