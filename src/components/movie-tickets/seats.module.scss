@@ -1,15 +1,18 @@
 .seats {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  //flex-wrap: wrap;
   width: 300px;
   height: 200px;
-  background-color: rgb(181, 179, 179);
+  background-color: rgb(106, 106, 106);
+  padding: 10px;
 }
 
 .seat {
-  flex-wrap: inherit;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
+
   background-color: white;
-  margin: 3px;
+  //margin: 1px;
   text-align: center;
 }
