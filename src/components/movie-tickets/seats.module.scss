@@ -1,7 +1,12 @@
+.row {
+  display: flex;
+}
+
 .seats {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  // display: grid;
+  // grid-template-columns: repeat(8, 1fr);
   //flex-wrap: wrap;
+
   width: 300px;
   height: 200px;
   background-color: rgb(106, 106, 106);
