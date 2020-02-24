@@ -72,7 +72,6 @@ const MovieTickets = () => {
       </Link>
       <h2>Movie Tickets</h2>
       <div className={mStyle.container}>
-        <h3>Title 3</h3>
         <div>
           <span style={{ marginRight: "5px" }}>Movie:</span>
           <select name="" id="">
