@@ -5,6 +5,7 @@ import Seats from "../components/movie-tickets/seats"
 
 import mStyle from "./movie-tickets.module.scss"
 import pStyle from "./form-validator.module.scss"
+import seatStyle from "../components/movie-tickets/seat.module.scss"
 
 const seats = [
   [
@@ -72,7 +73,6 @@ const MovieTickets = () => {
       <h2>Movie Tickets</h2>
       <div className={mStyle.container}>
         <h3>Title 3</h3>
-
         <div>
           <span style={{ marginRight: "5px" }}>Movie:</span>
           <select name="" id="">
@@ -81,7 +81,26 @@ const MovieTickets = () => {
             <option value="spider">Spiderman</option>
           </select>
         </div>
-
+        <div className={mStyle.showcase}>
+          <ul className={mStyle.cases}>
+            <li className={mStyle.case}>
+              <div className={[seatStyle.seat, seatStyle.na].join(" ")}></div>
+              <small>n/a</small>
+            </li>
+            <li className={mStyle.case}>
+              <div
+                className={[seatStyle.seat, seatStyle.selected].join(" ")}
+              ></div>
+              <small>selected</small>
+            </li>
+            <li className={mStyle.case}>
+              <div
+                className={[seatStyle.seat, seatStyle.occupied].join(" ")}
+              ></div>
+              <small>occupied</small>
+            </li>
+          </ul>
+        </div>
         <div className={mStyle.screen}></div>
         <Seats seats={seats} />
       </div>

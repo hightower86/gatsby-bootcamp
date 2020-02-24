@@ -5,6 +5,25 @@
   align-items: center;
   min-height: 100vh;
 
+  .showcase {
+    margin-top: 10px;
+    width: 60%;
+    ul {
+      margin: 0;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        small {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+
   .container {
     background-color: rgb(227, 227, 227);
     width: 80%;
