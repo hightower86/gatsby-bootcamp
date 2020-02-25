@@ -73,7 +73,7 @@ const MovieTickets = () => {
       <h2>Movie Tickets</h2>
       <div className={mStyle.container}>
         <div>
-          <span style={{ marginRight: "5px" }}>Movie:</span>
+          <span style={{ marginRight: "5px" }}>Pick a movie:</span>
           <select name="" id="">
             <option value="back">Back to the future</option>
             <option value="green">Green mile</option>
