@@ -21,7 +21,7 @@ const projects = () => (
       </div>
       <div className={projectsStyles.card}>
         <h3>Large projects</h3>
-        <p>large projects</p>
+        <p>dev connector</p>
       </div>
     </div>
   </Layout>
